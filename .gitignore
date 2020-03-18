@@ -1,0 +1,10 @@
+# Folders
+old/
+single-cell-bms-software-c/.metadata/
+single-cell-bms-software-c/.mcuxpressoide_packages_support/
+single-cell-bms-software-c/Debug/
+single-cell-bms-software-c/Release/
+single-cell-bms-software-c/Doxygen/
+
+# Files
+*.log
