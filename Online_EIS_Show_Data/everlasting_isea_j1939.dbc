@@ -1,0 +1,84 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: RWTH_EIS_ADC RWTH_EIS_DAC RWTH_EIS_PC
+
+
+BO_ 257 EIS_status: 4 RWTH_EIS_ADC
+ SG_ EIS_voltage : 0|16@1- (1,0) [0|0] ""  RWTH_EIS_PC,RWTH_EIS_ADC
+ SG_ EIS_current : 16|16@1- (1,0) [0|0] ""  RWTH_EIS_PC,RWTH_EIS_ADC
+
+BO_ 768 EIS_raw_a: 8 RWTH_EIS_ADC
+ SG_ EIS_raw_A0 : 0|16@1- (1,0) [0|0] ""  RWTH_EIS_PC
+ SG_ EIS_raw_A1 : 16|16@1- (1,0) [0|0] ""  RWTH_EIS_PC
+ SG_ EIS_raw_B0 : 32|16@1- (1,0) [0|0] ""  RWTH_EIS_PC
+ SG_ EIS_raw_B1 : 48|16@1- (1,0) [0|0] ""  RWTH_EIS_PC
+
+BO_ 769 EIS_raw_b: 8 RWTH_EIS_ADC
+ SG_ EIS_raw_C0 : 0|16@1- (1,0) [0|0] ""  RWTH_EIS_PC
+ SG_ EIS_raw_C1 : 16|16@1- (1,0) [0|0] ""  RWTH_EIS_PC
+ SG_ EIS_raw_D0 : 32|16@1- (1,0) [0|0] ""  RWTH_EIS_PC
+ SG_ EIS_raw_D1 : 48|16@1- (1,0) [0|0] ""  RWTH_EIS_PC
+
+BO_ 258 EIS_impedance_frequencies: 6 RWTH_EIS_ADC
+ SG_ EIS_frequencies_freq : 16|32@1+ (1,0) [0|0] ""  RWTH_EIS_PC
+ SG_ EIS_frequencies_num : 0|8@1+ (1,0) [0|0] ""  RWTH_EIS_PC
+
+BO_ 259 EIS_impedance_frequency: 4 RWTH_EIS_ADC
+ SG_ EIS_result_freq : 0|32@1+ (1,0) [0|0] ""  RWTH_EIS_PC
+
+BO_ 260 EIS_impedance_result: 8 RWTH_EIS_ADC
+ SG_ EIS_result_real : 0|32@1- (1,0) [0|0] ""  RWTH_EIS_PC
+ SG_ EIS_result_imag : 32|32@1- (1,0) [0|0] ""  RWTH_EIS_PC
+
+
+
+CM_ BU_ RWTH_EIS_ADC "RWTH EIS ADC";
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "NmStationAddress" 254;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "ProtocolType" "J1939";
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_ "NmStationAddress" BU_ RWTH_EIS_ADC 15;
+BA_ "NmStationAddress" BU_ RWTH_EIS_DAC 16;
+BA_ "NmStationAddress" BU_ RWTH_EIS_PC 17;
+SIG_VALTYPE_ 260 EIS_result_real : 1;
+SIG_VALTYPE_ 260 EIS_result_imag : 1;
+
